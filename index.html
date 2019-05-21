@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<script src="app/scripts/config.js"></script>
+<script src="app/scripts/angular.js"></script>
+
+<!-- CDN -->
+<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+<script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+
+<!-- Local -->
+<!-- <script src="app/scripts/aframe.min.js"></script>
+<script src="app/scripts/aframe-ar.min.js"></script>
+<script src="app/scripts/aframe-extras.loaders.min.js"></script> -->
+
+<script src="app/scripts/apicall.js"></script>
+<script src="app/scripts/script.js"></script>
+<script src="app/scripts/components.js"></script>
+
+<body ng-app="connectAr" ng-controller="ConnectARController as carController" style='margin : 0px; overflow: hidden; font-family: Monospace;'>
+
+	<a-scene embedded arjs='debugUIEnabled: false; sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 4x4;'>
+		
+		<!-- <a-marker preset='hiro' id='marker-hiro' registerevents>
+			<a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:blue;'>
+				<a-torus-knot radius='0.26' radius-tubular='0.05'>
+					<a-animation attribute="rotation" to="360 0 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+				</a-torus-knot>
+			</a-box>
+		</a-marker> -->
+
+
+		<!-- <a-marker ng-repeat="marker in carController.markerList track by $index" type='barcode' ng-attr-value="{{marker.id}}" ng-attr-id="{{marker.id}}">
+            <a-entity
+                gltf-model="#animated-asset"
+                scale="2">
+            </a-entity>
+		</a-marker> -->
+		
+		<a-marker ng-repeat="marker in carController.markerList track by $index" type='barcode' ng-attr-value="{{marker.id}}" ng-attr-id="{{marker.id}}" registerevents>
+			<!-- <a-image rotation="180 0 0" position="0 0 0" src="app/assets/images/Roche.png"></a-image>	 -->
+			
+			<a-entity text="font: mozillavr; value: ''"></a-entity>
+			<!-- <a-entity  position="-0.2 2 1" text="font: mozillavr; value: Via stock font name."></a-entity> -->
+            <!-- <a-entity id="entity-id" geometry="width: 2; height: auto"  position="-0.2 2 1" text="value: My name is Bikash"></a-entity> -->
+		</a-marker>
+
+		<a-entity camera></a-entity>
+	</a-scene>
+</body>
+</html>
