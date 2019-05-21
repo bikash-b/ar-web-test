@@ -82,7 +82,8 @@
               return new Date(b.runCompletionTime).getTime() - new Date(a.runCompletionTime).getTime() 
             })[0];
 
-            var orgLogo = getImageObject('-0.5 0.4 -1', 'app/assets/images/Roche.png');
+            //var orgLogo = getImageObject('-0.5 0.4 -1', 'app/assets/images/Roche.png');
+            var orgLogo = getImageObject('-0.5 0.4 0', 'app/assets/images/Roche.png');
             var accessioningId = getInfoObject('1 1 0', '-90 0 0', 'Accessioning Id', latestProcessStepResult.accesssioningId);
             var assayType = getInfoObject('1 1 0.2', '-90 0 0', 'Assay type', order[0].assayType);
             var processStepName = getInfoObject('1 1 0.4', '-90 0 0', 'Process step name', latestProcessStepResult.processStepName);
